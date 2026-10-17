@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body { @apply min-h-screen bg-sky-50 text-slate-800 antialiased; font-family: 'Outfit Variable', ui-sans-serif, system-ui, sans-serif;
+  background-image: radial-gradient(circle at 15% 10%, #bae6fd 0, transparent 40%), radial-gradient(circle at 85% 30%, #dbeafe 0, transparent 38%); background-attachment: fixed; }
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-semibold transition duration-200 active:scale-95 disabled:opacity-50; }
+  .btn-primary { @apply btn bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-lg shadow-sky-300/60 hover:-translate-y-0.5 hover:shadow-xl; }
+  .btn-ghost { @apply btn bg-white text-sky-700 ring-1 ring-sky-200 hover:bg-sky-100; }
+  .card { @apply rounded-3xl bg-white/80 p-5 shadow-xl shadow-sky-200/50 ring-1 ring-sky-100 backdrop-blur animate-pop; }
+  .field { @apply w-full rounded-xl border border-sky-200 bg-white px-4 py-3 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-100; }
+}
