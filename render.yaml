@@ -1,0 +1,29 @@
+# Render Blueprint: one free web service = frontend + backend + WebSocket
+services:
+  - type: web
+    name: alvishare
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "20"
+      - key: TRUST_PROXY
+        value: "true"
+      - key: PUBLIC_URL
+        sync: false          # Render asks you: e.g. https://alvishare.onrender.com
+      - key: MAX_FILE_SIZE_MB
+        value: "50"          # free plan has only 5 GB bandwidth / month
+      - key: MAX_STORAGE_GB
+        value: "1"
+      - key: DEFAULT_EXPIRY_MINUTES
+        value: "30"
+      - key: MAX_EXPIRY_MINUTES
+        value: "720"
+      - key: BLOCKED_EXTENSIONS
+        value: "exe,bat,cmd,msi,scr,ps1,vbs,apk"

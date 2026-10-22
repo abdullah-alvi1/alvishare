@@ -11,7 +11,7 @@ const turn = process.env.TURN_URL
 const stunUrls = list(process.env.STUN_URLS || 'stun:stun.l.google.com:19302');
 
 const tp = process.env.TRUST_PROXY;
-const trustProxy = tp === undefined || tp === 'false' ? false : (/^\d+$/.test(tp) ? parseInt(tp, 10) : tp);
+const trustProxy = tp === undefined || tp === 'false' ? false : tp === 'true' ? true : (/^\d+$/.test(tp) ? parseInt(tp, 10) : tp);
 
 module.exports = {
   name: 'Alvishare',
